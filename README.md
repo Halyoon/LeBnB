@@ -443,3 +443,54 @@ Testing is a critical aspect of maintaining the quality and reliability of the L
 
 These test cases are essential for ensuring the robustness, security, and user-friendliness of the Lebnb platform. Regular testing and automation are recommended to catch issues early and maintain a high-quality user experience.
 
+## Agile and Scrum Practices
+
+Lebnb embraces Agile and Scrum practices to promote collaboration, adaptability, and iterative development. These practices are integral to our product development approach, ensuring that we can respond to changing requirements and deliver a high-quality platform.
+
+### Agile Principles
+
+1. **Customer Collaboration over Contract Negotiation**:
+   - We prioritize close collaboration with our users (travelers and property owners) to understand their needs and deliver a product that meets their expectations.
+
+2. **Working Software over Comprehensive Documentation**:
+   - While documentation is essential, we emphasize the importance of delivering working software. We maintain comprehensive documentation but prioritize code and product functionality.
+
+3. **Responding to Change over Following a Plan**:
+   - Our development process is adaptable. We welcome changes in requirements and are prepared to adjust our plans accordingly to address evolving user needs.
+
+### Scrum Framework
+
+Lebnb follows the Scrum framework, which provides a structured approach to Agile development. Here are some key Scrum practices:
+
+1. **Sprints**:
+   - We organize our development work into time-boxed iterations called sprints, typically lasting two to four weeks. Sprints help us focus on delivering specific features and improvements within a defined timeframe.
+
+2. **Product Backlog**:
+   - The product backlog is a dynamic list of user stories and features that need to be developed. We prioritize items based on user feedback, business value, and changing market conditions.
+
+3. **Sprint Planning**:
+   - At the beginning of each sprint, the team conducts sprint planning meetings to select items from the product backlog to work on during that sprint.
+
+4. **Daily Stand-Ups**:
+   - Daily stand-up meetings keep the team in sync. Team members share their progress, challenges, and plans for the day.
+
+5. **Sprint Review**:
+   - At the end of each sprint, we hold sprint review meetings to demonstrate the completed work to stakeholders and gather feedback.
+
+6. **Sprint Retrospectives**:
+   - After each sprint, the team conducts sprint retrospectives to reflect on what went well and identify areas for improvement.
+
+### Continuous Integration and Deployment
+
+To ensure that working software is consistently available, we emphasize continuous integration and deployment (CI/CD) practices:
+
+- Code changes are frequently integrated into a shared repository and automatically tested.
+- Automated deployment pipelines ensure that the software can be reliably and quickly deployed to production.
+
+### User-Centered Design
+
+Agile and Scrum practices are complemented by a user-centered design approach:
+
+- Regular user feedback sessions and usability testing help us make data-driven decisions and prioritize user experience improvements.
+
+By combining Agile and Scrum practices, we strive to maintain a flexible and responsive development process, delivering features and improvements that align with user needs and business objectives. Collaboration, adaptability, and a focus on working software are at the core of our development philosophy.

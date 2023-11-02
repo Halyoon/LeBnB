@@ -71,3 +71,41 @@ To get started with the Lebanon Airbnb clone GitHub repo, you will need to:
 We encourage you to contribute to the Lebanon Airbnb clone GitHub repo. If you find any bugs, please report them. If you have any suggestions for improvements, please feel free to create a pull request.
 
 We hope you enjoy using the Lebanon Airbnb clone GitHub repo!
+
+## Requirements for the Lebanon Airbnb Clone Platform
+
+**Functional requirements:**
+
+* The platform must allow users to create and manage their own Airbnb-style listings.
+* The platform must allow users to search for and book accommodations in Lebanon.
+* The platform must allow users to communicate with each other through a messaging system.
+* The platform must allow users to leave reviews and ratings of each other.
+* The platform must be secure and reliable.
+
+**Non-functional requirements:**
+
+* The platform must be scalable to support a large number of users and listings.
+* The platform must be performant and responsive.
+* The platform must be user-friendly and easy to navigate.
+* The platform must be accessible to users with disabilities.
+
+**Technical requirements:**
+
+* The front-end app must be built using Next.js, React, and Tailwind CSS.
+* The back-end app must be built using Java Spring Boot and MySQL.
+* The platform must be deployed to a cloud hosting platform such as AWS, Azure, or GCP.
+
+## Additional requirements:
+
+* The platform must support multiple languages, including Arabic and English.
+* The platform must support multiple currencies, including the Lebanese Pound.
+* The platform must support various payment methods, such as credit cards, PayPal, and local payment methods.
+* The platform must integrate with third-party services such as Google Maps and Google Calendar.
+
+## Further considerations:
+
+* The platform should be designed to promote sustainable tourism in Lebanon.
+* The platform should be designed to support local businesses and communities in Lebanon.
+* The platform should be designed to be inclusive and welcoming to all travelers.
+
+We hope this list of requirements is helpful. Please let us know if you have any questions or suggestions.

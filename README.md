@@ -360,3 +360,86 @@ Deliver an exceptional user experience by focusing on user interface design and 
 
 By adhering to these development and platform best practices, Lebnb can achieve its goal of providing a solid and reliable platform for users, handling scalability, ensuring security, optimizing performance, and enhancing the overall user experience.
 
+## Test Cases
+
+Testing is a critical aspect of maintaining the quality and reliability of the Lebnb platform. We've identified various categories of test cases that should be considered for both the backend and frontend components. These test cases aim to cover different aspects of the platform's functionality and performance.
+
+### Backend Test Cases
+
+1. **User Registration and Authentication**:
+   - Verify that users can register with valid information.
+   - Ensure that users can log in with valid credentials.
+   - Test cases for handling registration and authentication errors.
+
+2. **Accommodation Listings**:
+   - Verify that property owners can create new listings.
+   - Test various listing details, including property type, pricing, and availability.
+   - Check the functionality for editing and deleting listings.
+
+3. **Booking and Reservations**:
+   - Test the process of booking accommodations by travelers.
+   - Ensure that reservations are correctly recorded and linked to the respective properties.
+   - Handle cases of booking conflicts and cancellations.
+
+4. **Messaging**:
+   - Test the messaging system to ensure travelers and property owners can communicate seamlessly.
+   - Verify message notifications and real-time updates.
+
+5. **Reviews and Ratings**:
+   - Test the submission and display of reviews and ratings for accommodations.
+   - Verify that reviews are linked to the correct property.
+
+6. **Search and Filtering**:
+   - Test the search functionality to find accommodations based on location, dates, and other criteria.
+   - Verify the accuracy of search results and filtering options.
+
+7. **Payment Processing**:
+   - Ensure secure payment processing and handle various payment methods.
+   - Test cases for successful and failed payment transactions.
+
+8. **Security and Authorization**:
+   - Check authorization levels for different user roles.
+   - Verify that sensitive data is protected and only accessible to authorized users.
+
+9. **Performance Testing**:
+   - Conduct performance tests to evaluate the platform's response times and capacity under load.
+   - Monitor resource utilization and address performance bottlenecks.
+
+### Frontend Test Cases
+
+1. **User Interface (UI) and User Experience (UX)**:
+   - Ensure a responsive design for different devices and screen sizes.
+   - Verify that the user interface elements work correctly and provide a smooth user experience.
+
+2. **Navigation**:
+   - Test the navigation within the platform, including menu links, buttons, and other navigation elements.
+   - Verify that users can easily move between different sections of the platform.
+
+3. **Search and Booking**:
+   - Test the search functionality for finding accommodations.
+   - Verify that users can book accommodations, view booking details, and access their booking history.
+
+4. **Messaging and Notifications**:
+   - Test the messaging system and ensure that users receive notifications for new messages.
+   - Verify that messages are delivered accurately.
+
+5. **Accessibility Testing**:
+   - Ensure that the platform is accessible to users with disabilities, following web accessibility guidelines (WCAG).
+
+6. **Browser Compatibility**:
+   - Test the platform on different web browsers (e.g., Chrome, Firefox, Safari, Edge) to ensure compatibility.
+
+7. **Performance and Load Testing**:
+   - Conduct performance tests to evaluate frontend performance, especially for heavy user traffic.
+
+8. **Usability Testing**:
+   - Involve actual users in usability testing to gather feedback on the platform's ease of use and any pain points.
+
+9. **Cross-Device Testing**:
+   - Test the platform on various devices, including smartphones, tablets, and desktops, to ensure a consistent experience.
+
+10. **Localization Testing**:
+    - Verify that the platform works correctly with different languages and locales.
+
+These test cases are essential for ensuring the robustness, security, and user-friendliness of the Lebnb platform. Regular testing and automation are recommended to catch issues early and maintain a high-quality user experience.
+

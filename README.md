@@ -6,6 +6,9 @@ Lebn offers a wide variety of accommodations, from budget-friendly hostels to lu
 
 In addition to offering a wide range of accommodations, Lebn also offers a variety of features and services to make your trip to Lebanon as smooth and enjoyable as possible. For example, we offer:
 
+https://www.denis-oakley.com/what-is-airbnbs-business-model/
+![image](https://github.com/Halyoon/lebnb/assets/3023747/181d1b4e-5a75-4162-8b13-daaafe8ecd6e)
+
 * **Secure online booking:** You can book your accommodation on our website or mobile app with confidence, knowing that your payment is secure.
 * **24/7 customer support:** We are available 24/7 to answer your questions and help you with any problems you may have.
 * **Local knowledge and expertise:** Our team of local experts can help you plan your trip, recommend things to do, and get the most out of your time in Lebanon.

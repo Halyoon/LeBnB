@@ -138,3 +138,62 @@ Here are some use cases for the Lebanon Airbnb Clone Platform:
 The Lebanon Airbnb Clone Platform can be used by travelers of all types, from budget-minded backpackers to luxury travelers. It can also be used by homeowners of all types, from those who want to rent out a spare bedroom to those who want to rent out their entire home.
 
 We hope this gives you a better understanding of the potential use cases for the Lebanon Airbnb Clone Platform.
+
+Here is a list of all the needed database tables and the columns for the Lebanon Airbnb Clone Platform:
+
+**Users table:**
+
+* id (primary key)
+* name
+* email
+* phone_number
+* password
+* is_host (boolean)
+* is_admin (boolean)
+
+**Accommodations table:**
+
+* id (primary key)
+* user_id (foreign key to Users table)
+* title
+* description
+* address
+* city
+* country
+* type (apartment, house, villa, etc.)
+* capacity (number of guests)
+* price_per_night
+* photos (list of photo URLs)
+* amenities (list of amenities)
+* availability (list of dates that the accommodation is available)
+
+**Bookings table:**
+
+* id (primary key)
+* user_id (foreign key to Users table)
+* accommodation_id (foreign key to Accommodations table)
+* check_in_date
+* check_out_date
+* total_price
+* status (pending, confirmed, cancelled)
+
+**Reviews table:**
+
+* id (primary key)
+* user_id (foreign key to Users table)
+* accommodation_id (foreign key to Accommodations table)
+* rating (1-5 stars)
+* comment
+
+This is a basic list of the needed database tables and the columns. You may need to add additional tables and columns depending on your specific requirements.
+
+Here are some additional tables that you may need:
+
+* **Payments table:** This table would store information about payments made by users, such as the payment method, the amount paid, and the date of the payment.
+* **Messages table:** This table would store information about messages sent between users, such as the sender and receiver, the message content, and the date and time of the message.
+* **Countries table:** This table would store information about countries, such as the country name, the country code, and the currency.
+* **Cities table:** This table would store information about cities, such as the city name, the country code, and the state or province.
+
+You may also need to create additional tables to store information about specific features of your platform, such as a table to store information about user reviews or a table to store information about payment methods.
+
+I hope this helps!

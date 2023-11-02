@@ -5,6 +5,80 @@ Lebn is a platform that connects travelers with homeowners in Lebanon, allowing 
 Lebn offers a wide variety of accommodations, from budget-friendly hostels to luxury villas. With Lebn, you can stay in a traditional Lebanese home, a modern apartment, or even a glamping tent in the mountains. No matter what your budget or travel style is, Lebn has the perfect accommodation for you.
 
 In addition to offering a wide range of accommodations, Lebn also offers a variety of features and services to make your trip to Lebanon as smooth and enjoyable as possible. For example, we offer:
+## Business Model Canvas
+
+Lebnb follows a well-defined business model to drive its operations and revenue generation. The Business Model Canvas is a strategic tool that outlines the key components of the business model. Here's a brief overview of how Lebnb's business model canvas is structured:
+
+### Customer Segments
+
+Lebnb targets two primary customer segments:
+
+1. **Travelers**: This segment includes individuals and groups seeking accommodations in Lebanon. Travelers are looking for a range of lodging options, from budget-friendly to luxury.
+
+2. **Property Owners**: Property owners, such as homeowners, boutique hotels, and guesthouses, represent the second customer segment. They use Lebnb to list and rent their properties to travelers.
+
+### Value Proposition
+
+Lebnb provides a unique value proposition to its customer segments:
+
+- **For Travelers**: Access to a diverse range of accommodations in Lebanon, user-friendly booking features, and a local, personalized experience.
+
+- **For Property Owners**: A platform to showcase their properties, connect with travelers, and generate income from their accommodations.
+
+### Channels
+
+Lebnb utilizes multiple channels to reach and interact with its customers:
+
+- **Online Platform**: The primary channel is the Lebnb website and mobile app, providing travelers and property owners with an online marketplace for accommodations.
+
+- **Customer Support**: Offering customer support through various communication channels to address inquiries and issues.
+
+### Customer Relationships
+
+Lebnb aims to establish strong customer relationships by:
+
+- Providing prompt and efficient customer support.
+- Collecting and addressing user feedback to improve the platform.
+
+### Revenue Streams
+
+Lebnb generates revenue primarily through the following streams:
+
+- **Booking Fees**: Earning a percentage of each booking made through the platform.
+- **Premium Listings**: Offering property owners premium listing options for enhanced visibility and features.
+
+### Key Resources
+
+Key resources required to operate Lebnb include:
+
+- **Technology**: The development and maintenance of the online platform.
+- **Database**: Housing property listings and user data.
+- **Customer Support Team**: For addressing customer inquiries and issues.
+
+### Key Activities
+
+Key activities encompass:
+
+- **Platform Development**: Continuously improving and updating the online platform.
+- **Marketing and Promotion**: Attracting travelers and property owners to the platform.
+
+### Key Partnerships
+
+Lebnb forms partnerships to enhance its offerings, including:
+
+- **Payment Processors**: Partnering with payment processing companies to facilitate secure transactions.
+- **Local Businesses**: Collaborating with local businesses for potential discounts or promotions for travelers.
+
+### Cost Structure
+
+Lebnb's cost structure includes:
+
+- **Development and Maintenance Costs**: Investment in technology and platform upkeep.
+- **Marketing and Advertising Expenses**: Costs associated with promoting the platform.
+- **Customer Support Team**: Expenses related to maintaining a customer support team.
+
+By adhering to this business model canvas, Lebnb aims to provide value to its customers, generate revenue, and create a sustainable and profitable platform for both travelers and property owners.
+
 
 https://www.denis-oakley.com/what-is-airbnbs-business-model/
 ![image](https://github.com/Halyoon/lebnb/assets/3023747/181d1b4e-5a75-4162-8b13-daaafe8ecd6e)

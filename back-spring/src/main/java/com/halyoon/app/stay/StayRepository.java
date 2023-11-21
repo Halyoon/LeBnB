@@ -1,5 +1,6 @@
 package com.halyoon.app.stay;
 
+import com.halyoon.app.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

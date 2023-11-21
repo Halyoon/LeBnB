@@ -20,5 +20,5 @@ public class StayResponse {
     private Double price;
     private String summary;
     private String capacity;
-    private User user;
+    private User host;
 }

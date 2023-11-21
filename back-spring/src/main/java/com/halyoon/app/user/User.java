@@ -10,6 +10,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 //@Data is for the getters and setters
@@ -20,7 +21,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name ="app_user")
+@Table(name = "app_user")
 public class User implements UserDetails {
     @Id
     @GeneratedValue
@@ -38,6 +39,21 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
     private String secret;
+    private String imgUrl;
+    private boolean isSuperhost;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private Date createdAt = new Date();
+
+    private String location;
+    //  @LOB TO HANDLE LARGE text
+    @Lob
+    private String about;
+    private String responseTime;
+
+
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));

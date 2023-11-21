@@ -56,17 +56,15 @@ public class SecurityApplication {
 
 		// Rest of your code for creating a Stay instance
 		StayImages image1 = StayImages.builder()
-				.stay((Stay) securityApplication.stayRepository.getReferenceById(1))
 				.imageUrl("https://example.com/image1.jpg")
 				.build();
 
 		StayImages image2 = StayImages.builder()
-				.stay(securityApplication.stayRepository.getReferenceById(1))
 				.imageUrl("https://example.com/image2.jpg")
 				.build();
 
 		Stay stayWithoutReviews = Stay.builder()
-				.id(1)
+				.id(2)
 				.bedrooms(2)
 				.bathrooms(1)
 				.name("Cozy Cottage")
@@ -75,11 +73,12 @@ public class SecurityApplication {
 				.summary("A cozy cottage with a beautiful view.")
 				.capacity("4 guests")
 				.user(savedUser)
-				.images(null) // Add the list of images
+				.images(List.of(image1,image2)) // Add the list of images
 				.amenities(null)
 				.location(null)
 				.reviews(null)
 				.build();
+		securityApplication.stayRepository.save(stayWithoutReviews);
 
 	}
 }

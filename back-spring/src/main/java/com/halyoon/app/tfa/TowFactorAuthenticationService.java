@@ -1,4 +1,4 @@
-package com.halyoon.app.tfs;
+package com.halyoon.app.tfa;
 
 import dev.samstevens.totp.code.*;
 import dev.samstevens.totp.exceptions.QrGenerationException;
@@ -8,7 +8,6 @@ import dev.samstevens.totp.qr.ZxingPngQrGenerator;
 import dev.samstevens.totp.secret.DefaultSecretGenerator;
 import dev.samstevens.totp.time.SystemTimeProvider;
 import dev.samstevens.totp.time.TimeProvider;
-import dev.samstevens.totp.util.Utils;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.stereotype.Service;

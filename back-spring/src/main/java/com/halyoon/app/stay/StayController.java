@@ -15,14 +15,16 @@ import java.util.List;
 public class StayController {
 
     private final StayService service;
+    private final StayMapper mapper;
 
     @GetMapping
     public ResponseEntity<?> getStays(@RequestParam(required = false) StayRequest page) {
         try {
             List<Stay> stays = this.service.getStays(page);
-            return ResponseEntity.ok(stays);
-        } catch (Exception var3) {
-            return ResponseEntity.ok(var3.getMessage());
+            List<StayResponse> staysResponse = this.mapper.getStays(stays);
+            return ResponseEntity.ok(staysResponse);
+        } catch (Exception e) {
+            return ResponseEntity.ok(e.getMessage());
         }
     }
 

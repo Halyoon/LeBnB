@@ -1,7 +1,7 @@
 package com.halyoon.app.auth;
 
 import com.halyoon.app.config.JwtService;
-import com.halyoon.app.tfs.TowFactorAuthenticationService;
+import com.halyoon.app.tfa.TowFactorAuthenticationService;
 import com.halyoon.app.user.Role;
 import com.halyoon.app.user.User;
 import com.halyoon.app.user.UserRespository;

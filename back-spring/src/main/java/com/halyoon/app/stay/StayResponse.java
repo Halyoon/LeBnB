@@ -12,23 +12,13 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(
-        name = "stay"
-)
-public class Stay {
+public class StayResponse {
 
-    @Id
-    @GeneratedValue
-    private Integer id;
+    private Integer _id;
     private String name;
     private String type;
-    private double price;
+    private Double price;
     private String summary;
     private String capacity;
-    @ManyToOne
-    @JoinColumn(
-            name = "user_id"
-    )
     private User user;
 }

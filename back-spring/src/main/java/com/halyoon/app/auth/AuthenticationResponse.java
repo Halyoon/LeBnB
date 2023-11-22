@@ -15,6 +15,6 @@ public class AuthenticationResponse {
 
     private String token;
     private String error;
-    private boolean mfaEnabled;
-    private String secretImageUri;
+//    private boolean mfaEnabled;
+//    private String secretImageUri;
 }

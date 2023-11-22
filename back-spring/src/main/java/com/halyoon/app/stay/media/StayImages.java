@@ -24,5 +24,4 @@ public class StayImages {
     private Stay stay;
 
     private String imageUrl;
-    // You can add more fields related to the image, such as a description, etc.
 }

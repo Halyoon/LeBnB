@@ -48,7 +48,7 @@ public class User implements UserDetails {
 
     private String location;
     //  @LOB TO HANDLE LARGE text
-    @Lob
+
     private String about;
     private String responseTime;
 

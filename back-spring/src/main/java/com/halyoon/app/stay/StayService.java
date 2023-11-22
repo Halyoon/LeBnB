@@ -2,6 +2,7 @@ package com.halyoon.app.stay;
 
 import com.halyoon.app.stay.media.ImageRepository;
 import com.halyoon.app.stay.media.StayImages;
+import com.halyoon.app.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,7 @@ import java.util.List;
 public class StayService {
 
     private final StayRepository repository;
-
+    private final UserService userService;
     private final ImageRepository imageRepository;
 
 
@@ -30,6 +31,7 @@ public class StayService {
                 .bathrooms(stayRequest.getBathrooms())
                 .name(stayRequest.getName())
                 .type(stayRequest.getType())
+                .user(userService.getUser())
                 .price(stayRequest.getPrice())
                 .summary(stayRequest.getSummary())
                 .capacity(stayRequest.getCapacity())
@@ -42,8 +44,4 @@ public class StayService {
         return stay;
     }
 
-    public Object images() {
-        List<StayImages> stayImages = imageRepository.findByStayId(102);
-        return stayImages;
-    }
 }

@@ -35,7 +35,7 @@ public class StayController {
         return ResponseEntity.ok(stays);
     }
 
-    @PostMapping()
+    @PostMapping("/create")
     public ResponseEntity<?> createStay(@RequestBody StayRequest stayRequest) {
         try {
             Stay savedStay = this.stayService.saveStay(stayRequest);

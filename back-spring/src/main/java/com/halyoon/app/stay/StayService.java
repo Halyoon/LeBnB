@@ -4,6 +4,7 @@ import com.halyoon.app.stay.media.ImageRepository;
 import com.halyoon.app.stay.media.StayImages;
 import com.halyoon.app.user.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,8 +18,8 @@ public class StayService {
     private final ImageRepository imageRepository;
 
 
-    public List<Stay> getStays(Integer page) {
-        return this.repository.findAll();
+    public List<Stay> getStays(PageRequest pageRequest) {
+        return this.repository.findAll(pageRequest).getContent();
     }
 
     public Object Length() {
@@ -44,4 +45,7 @@ public class StayService {
         return stay;
     }
 
+    public Stay getStayById(Integer id) {
+        return  this.repository.getReferenceById(id);
+    }
 }

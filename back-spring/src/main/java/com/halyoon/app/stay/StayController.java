@@ -3,6 +3,7 @@ package com.halyoon.app.stay;
 import com.halyoon.app.stay.media.ImageRepository;
 import com.halyoon.app.stay.media.StayImages;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,8 +21,8 @@ public class StayController {
     @GetMapping
     public ResponseEntity<?> getStays(@RequestParam(defaultValue = "0",required = false) Integer page ,@RequestParam(defaultValue = "6",required = false) Integer size) {
         try {
-
-            List<Stay> stays = this.service.getStays(page);
+            PageRequest pageRequest = PageRequest.of(page, size);
+            List<Stay> stays = this.service.getStays(pageRequest);
             List<StayResponse> staysResponse = this.mapper.getStays(stays);
             return ResponseEntity.ok(staysResponse);
         } catch (Exception e) {
@@ -46,5 +47,17 @@ public class StayController {
             return ResponseEntity.badRequest().body("Error: " + e.getMessage());
         }
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getStayById(@PathVariable Integer id) {
+        try {
+            Stay stay = this.service.getStayById(id);
+            List<StayResponse> staysResponse = this.mapper.getStays(List.of(stay));
+            return ResponseEntity.ok(staysResponse.get(0));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Error: " + e.getMessage());
+        }
+    }
+
 
 }

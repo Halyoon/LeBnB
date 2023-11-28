@@ -31,7 +31,7 @@ public class Stay {
     private String type;
     private double price;
     private String summary;
-    private String capacity;
+    private Integer capacity;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

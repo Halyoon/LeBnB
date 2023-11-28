@@ -53,7 +53,7 @@ export class StayIndexComponent implements OnInit, OnDestroy {
   async onPageScroll() {
     const element = this.elFooter.nativeElement
     if (element.clientHeight + element.offsetTop <= window.scrollY + window.innerHeight && !this.isShowMap) {
-      if (this.stayFullLength > this.stayLoadIndex * 20 && !this.isLoadStay) {
+      if (this.stayFullLength > this.stayLoadIndex * 6 && !this.isLoadStay) {
         this.isLoadStay = true
         this.loader.setLoading(true)
         await this.stayService.loadStays(this.stayLoadIndex)

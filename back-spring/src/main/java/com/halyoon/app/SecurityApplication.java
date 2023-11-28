@@ -72,7 +72,7 @@ public class SecurityApplication {
 				.type("Entire House")
 				.price(100.00)
 				.summary("A cozy cottage with a beautiful view.")
-				.capacity("4 guests")
+				.capacity(4)
 //				.user(savedUser)
 				.amenities(null)
 				.location(null)

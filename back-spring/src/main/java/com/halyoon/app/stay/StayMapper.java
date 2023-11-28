@@ -47,6 +47,8 @@ public class StayMapper {
                             .name(stay.getName())
                             .price(stay.getPrice())
                             .summary(stay.getSummary())
+                            .bathrooms(stay.getBathrooms())
+                            .bedrooms(stay.getBedrooms())
                             .imgUrls(images)
                             .type(stay.getType())
                             .capacity(stay.getCapacity())

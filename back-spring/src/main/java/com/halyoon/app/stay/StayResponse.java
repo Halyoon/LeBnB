@@ -24,7 +24,10 @@ public class StayResponse {
     private String type;
     private Double price;
     private String summary;
-    private String capacity;
+    private Integer bedrooms;
+    private Integer bathrooms;
+
+    private Integer capacity;
     private List<String> imgUrls;
     private UserResponse host;
     private Review review;

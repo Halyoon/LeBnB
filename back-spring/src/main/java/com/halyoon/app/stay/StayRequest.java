@@ -16,6 +16,6 @@ public class StayRequest {
     private String summary;
     private Integer bedrooms;
     private Integer bathrooms;
-    private String capacity;
+    private Integer capacity;
     private List<String> imgUrls;
 }

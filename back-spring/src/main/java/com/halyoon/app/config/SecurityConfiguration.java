@@ -19,7 +19,10 @@ import static org.springframework.http.HttpMethod.GET;
 @RequiredArgsConstructor
 @EnableMethodSecurity
 public class SecurityConfiguration {
-
+    private static final String[] WHITE_LIST_URL = {
+            "/api/stay/**",
+            "api/stay/length"
+          };
 
     private final JwtAuthFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
@@ -31,7 +34,7 @@ public class SecurityConfiguration {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers(GET,"/api/stay/**").permitAll() //stayes list and length
+                        .requestMatchers(GET,WHITE_LIST_URL).permitAll() //stayes list and length
                         .anyRequest().authenticated()
                 )
                 .sessionManagement((session) -> session

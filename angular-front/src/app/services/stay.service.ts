@@ -14,7 +14,7 @@ export class StayService {
   ) { }
 
   STAY_KEY: string = 'stayDB';
-  STAY_URL: string = 'stay/'
+  STAY_URL: string = 'stay'
 
   private _stays$ = new BehaviorSubject<Stay[]>([]);
   public stays$ = this._stays$.asObservable()
@@ -42,12 +42,12 @@ export class StayService {
     const filterBy = this._stayFilter$.value
     const queryParams = this.getQueryParams(filterBy)
 
-    const stayLength = await lastValueFrom(this.httpService.get(this.STAY_URL + 'length/' + queryParams, null)) as number
+    const stayLength = await lastValueFrom(this.httpService.get(this.STAY_URL + '/length' + queryParams, null)) as number
     this._stayLength$.next(stayLength)
   }
 
   public getById(stayId: string): Observable<Stay> {
-    return this.httpService.get(this.STAY_URL + stayId, null) as Observable<Stay>
+    return this.httpService.get(this.STAY_URL + '/' + stayId, null) as Observable<Stay>
   }
 
   public save(stay: any) {

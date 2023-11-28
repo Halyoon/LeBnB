@@ -18,7 +18,7 @@ public class StayController {
     private final StayMapper mapper;
 
     @GetMapping
-    public ResponseEntity<?> getStays(@RequestParam(required = false) Integer page) {
+    public ResponseEntity<?> getStays(@RequestParam(defaultValue = "0",required = false) Integer page ,@RequestParam(defaultValue = "6",required = false) Integer size) {
         try {
 
             List<Stay> stays = this.service.getStays(page);

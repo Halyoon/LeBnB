@@ -6,7 +6,7 @@ import { io } from 'socket.io-client';
 })
 export class SocketService {
   socket: any
-  readonly uri: string = isDevMode() ? '//localhost:3030' : ''
+  readonly uri: string = isDevMode() ? '//localhost:8080' : ''
 
   constructor() {
     this.socket = io(this.uri)

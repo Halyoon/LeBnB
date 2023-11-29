@@ -1,6 +1,5 @@
-package com.halyoon.app.stay;
+package com.halyoon.app.review.stay;
 
-import com.halyoon.app.stay.media.StayImages;
 import lombok.Builder;
 import lombok.Data;
 
@@ -16,6 +15,6 @@ public class StayRequest {
     private String summary;
     private Integer bedrooms;
     private Integer bathrooms;
-    private Integer capacity;
+    private int capacity;
     private List<String> imgUrls;
 }

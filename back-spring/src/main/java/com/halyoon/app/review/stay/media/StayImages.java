@@ -1,6 +1,6 @@
-package com.halyoon.app.stay.media;
+package com.halyoon.app.review.stay.media;
 
-import com.halyoon.app.stay.Stay;
+import com.halyoon.app.review.stay.Stay;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

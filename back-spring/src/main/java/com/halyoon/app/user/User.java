@@ -1,5 +1,6 @@
 package com.halyoon.app.user;
 
+import com.halyoon.app.token.Token;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -41,6 +42,9 @@ public class User implements UserDetails {
     private String secret;
     private String imgUrl;
     private boolean isSuperhost;
+
+    @OneToMany(mappedBy = "user")
+    private List<Token> tokens;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, updatable = false)

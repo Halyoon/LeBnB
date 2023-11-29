@@ -1,7 +1,5 @@
-package com.halyoon.app.stay;
+package com.halyoon.app.review.stay;
 
-import com.halyoon.app.stay.media.ImageRepository;
-import com.halyoon.app.stay.media.StayImages;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;

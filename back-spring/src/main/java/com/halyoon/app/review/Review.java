@@ -1,6 +1,6 @@
 package com.halyoon.app.review;
 import com.halyoon.app.user.User;
-import com.halyoon.app.stay.Stay;
+import com.halyoon.app.review.stay.Stay;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

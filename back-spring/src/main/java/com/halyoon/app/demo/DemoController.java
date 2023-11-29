@@ -19,15 +19,20 @@ public class DemoController {
     public ResponseEntity<String> sayHello() {
 
 
+try {
+    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+    if (userDetails != null) {
+        // Use the UserDetails object to access user information
+        return ResponseEntity.ok("Hello from secured endpoint\n" + userDetails);
+    }
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        if (userDetails != null) {
-            // Use the UserDetails object to access user information
-            return ResponseEntity.ok("Hello from secured endpoint\n" + userDetails);
-        }
-
-        return ResponseEntity.ok("Hello from secured endpoint\n");
+    return ResponseEntity.ok("Hello from secured endpoint\n");
+}
+catch (Exception ex)
+{
+    throw new RuntimeException(ex.getMessage());
+}
     }
 
 }

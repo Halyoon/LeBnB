@@ -1,11 +1,9 @@
-package com.halyoon.app.stay;
+package com.halyoon.app.review.stay;
 
 
 import com.halyoon.app.review.Review;
-import com.halyoon.app.stay.media.StayImages;
-import com.halyoon.app.user.User;
 import com.halyoon.app.user.UserResponse;
-import jakarta.persistence.*;
+import location.LocationResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,10 +24,11 @@ public class StayResponse {
     private String summary;
     private Integer bedrooms;
     private Integer bathrooms;
-
-    private Integer capacity;
+    private LocationResponse loc;
+    private List<String> amenities;
+    private int capacity;
     private List<String> imgUrls;
     private UserResponse host;
-    private Review review;
+    private List<Review> reviews;
 
 }

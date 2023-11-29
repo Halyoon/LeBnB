@@ -1,9 +1,9 @@
 package com.halyoon.app;
 
-import com.halyoon.app.stay.Stay;
-import com.halyoon.app.stay.StayRepository;
-import com.halyoon.app.stay.media.ImageRepository;
-import com.halyoon.app.stay.media.StayImages;
+import com.halyoon.app.review.stay.Stay;
+import com.halyoon.app.review.stay.StayRepository;
+import com.halyoon.app.review.stay.media.ImageRepository;
+import com.halyoon.app.review.stay.media.StayImages;
 import com.halyoon.app.user.Role;
 import com.halyoon.app.user.User;
 import com.halyoon.app.user.UserRespository;
@@ -11,13 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 
-import java.security.Principal;
 import java.util.Date;
-import java.util.List;
 
 @SpringBootApplication
 @EntityScan(basePackages = "com.halyoon.app")

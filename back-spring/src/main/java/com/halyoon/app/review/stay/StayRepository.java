@@ -1,6 +1,5 @@
-package com.halyoon.app.stay;
+package com.halyoon.app.review.stay;
 
-import com.halyoon.app.user.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

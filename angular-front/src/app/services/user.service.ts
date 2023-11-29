@@ -44,8 +44,10 @@ export class UserService {
   }
 
   public async login(credentials: User) {
+    console.log(credentials);
+    
     try {
-      const loggedInUser = await lastValueFrom(this.httpService.post(this.AUTH_URL + 'login', credentials)) as User
+      const loggedInUser = await lastValueFrom(this.httpService.post(this.AUTH_URL + 'authenticate', credentials)) as User
       if (loggedInUser) {
         this.saveLocalUser(loggedInUser)
         this.socketService.login(loggedInUser._id)
@@ -60,7 +62,7 @@ export class UserService {
   
   public async signup(user: User) {
     try {
-      user = await lastValueFrom(this.httpService.post(this.AUTH_URL + 'signup', user)) as User
+      user = await lastValueFrom(this.httpService.post(this.AUTH_URL + 'register', user)) as User
       this.saveLocalUser(user)
       this._user$.next(user)
     } catch (err) {
@@ -119,11 +121,39 @@ export class UserService {
 
   public async logout() {
     try {
-      await lastValueFrom(this.httpService.post(this.AUTH_URL + 'logout'))
+
+      const storedUserString = sessionStorage.getItem(this.STORAGE_KEY_LOGGEDIN_USER);
+      
+      if (!storedUserString) {
+        // Handle the case where the user is not in session storage
+        console.log('User not found in session storage');
+        return;
+      }
+      const storedUser: User = JSON.parse(storedUserString);
+
+      // Assuming the token is stored in a 'token' property of the user object
+      const token = storedUser.token;
+
+      if (!token) {
+        // Handle the case where the token is not present in the user object
+        console.log('Token not found in user object');
+        return;
+      }
+// Set the Authorization header with the Bearer token
+const headers = {
+  Authorization: `BEARER${token}`,
+};
+
+// Send the POST request with headers
+// await this.httpService.post(this.AUTH_URL + 'logout', {}, { headers }).toPromise();
+
+
+
+      await lastValueFrom(this.httpService.post(this.AUTH_URL + 'logout',{headers}))
       sessionStorage.clear()
-      this.socketService.logout()
-      this.socketService.off(this.socketService.SOCKET_EMIT_ORDER_FOR_HOST, this.hostFunction)
-      this.socketService.off(this.socketService.SOCKET_EMIT_ORDER_FOR_USER, this.userFunction)
+      // this.socketService.logout()
+      // this.socketService.off(this.socketService.SOCKET_EMIT_ORDER_FOR_HOST, this.hostFunction)
+      // this.socketService.off(this.socketService.SOCKET_EMIT_ORDER_FOR_USER, this.userFunction)
       this._user$.next(null)
       window.location.assign('/')
     } catch (err) {

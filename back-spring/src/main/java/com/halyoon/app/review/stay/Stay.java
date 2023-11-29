@@ -1,10 +1,10 @@
-package com.halyoon.app.stay;
+package com.halyoon.app.review.stay;
 
 
 import com.halyoon.app.amenity.Amenity;
 import com.halyoon.app.location.Location;
 import com.halyoon.app.review.Review;
-import com.halyoon.app.stay.media.StayImages;
+import com.halyoon.app.review.stay.media.StayImages;
 import com.halyoon.app.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

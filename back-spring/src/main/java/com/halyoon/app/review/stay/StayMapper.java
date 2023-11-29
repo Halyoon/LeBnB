@@ -1,13 +1,15 @@
-package com.halyoon.app.stay;
+package com.halyoon.app.review.stay;
 
-import com.halyoon.app.stay.media.ImageRepository;
-import com.halyoon.app.stay.media.StayImages;
+import com.halyoon.app.review.stay.media.ImageRepository;
+import com.halyoon.app.review.stay.media.StayImages;
 import com.halyoon.app.user.User;
 import com.halyoon.app.user.UserResponse;
+import location.LocationResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -16,7 +18,7 @@ public class StayMapper {
 
     private final ImageRepository imageRepository;
 
-    private UserResponse map(User user) {
+    private UserResponse mapHost(User user) {
         if (user == null)
             return null;
         return UserResponse.builder()
@@ -31,13 +33,27 @@ public class StayMapper {
                 .build();
     }
 
+
+    private LocationResponse maploc() {
+
+        return LocationResponse.builder()
+                .address("Lahaina, HI, United States")
+                .lat(-156.6917)
+                .lan(20.93792)
+                .city("Maui")
+                .country("United States")
+                .countryCode("US")
+                .build();
+    }
+
     public List<StayResponse> getStays(List<Stay> stays) {
         List<StayResponse> list = new ArrayList<>();
 
         for (Stay stay : stays) {
 
             //map user
-            var hostResponse = map(stay.getUser());
+            var hostResponse = mapHost(stay.getUser());
+            var Location = maploc();
             //map images
             var images = map(stay.getImages());
 
@@ -51,6 +67,9 @@ public class StayMapper {
                             .bedrooms(stay.getBedrooms())
                             .imgUrls(images)
                             .type(stay.getType())
+                            .loc(Location)
+                            .amenities(Collections.emptyList())
+                            .reviews(Collections.emptyList())
                             .capacity(stay.getCapacity())
                             .host(hostResponse).build();
 

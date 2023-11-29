@@ -2,6 +2,9 @@ package com.halyoon.app.auth;
 
 import com.halyoon.app.config.JwtService;
 import com.halyoon.app.tfa.TowFactorAuthenticationService;
+import com.halyoon.app.token.Token;
+import com.halyoon.app.token.TokenRepository;
+import com.halyoon.app.token.TokenType;
 import com.halyoon.app.user.Role;
 import com.halyoon.app.user.User;
 import com.halyoon.app.user.UserRespository;
@@ -25,20 +28,21 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
     private final TowFactorAuthenticationService tfaService;
+    private final TokenRepository tokenRepository;
 
 
     public AuthenticationResponse register(RegisterRequest request) throws Exception {
         //Gards
         if (request.getPassword() == null) throw new Exception("Password is required");
         else {
-            if (repository.existsByEmail(request.getEmail())) {
+            if (repository.existsByEmail(request.getUsername())) {
                 throw new IllegalStateException("User exists (:>");
             }
 
-            var user = User.builder().firstname(request.getFirstname())
+            var user = User.builder().firstname(request.getFullname())
                     .lastname(request.getLastname())
                     .imgUrl(request.getImgUrl())
-                    .email(request.getEmail())
+                    .email(request.getUsername())
                     .createdAt(new Date())
                     .about(request.getAbout())
                     .location(request.getLocation())
@@ -54,6 +58,7 @@ public class AuthenticationService {
             var savedUser = repository.save(user);
 
             var jwtToken = jwtService.generateToken(savedUser);
+            saveUserToken(savedUser, jwtToken);
 
             return AuthenticationResponse.builder().token(jwtToken)
                     //.secretImageUri(tfaService.generateQrCodeImageUri(user.getSecret()))                    //.mfaEnabled(user.isMfaEnabled())
@@ -62,14 +67,36 @@ public class AuthenticationService {
 
     }
 
+    private void saveUserToken(User user, String jwtToken) {
+        var token= Token.builder()
+                .user(user)
+                .token(jwtToken)
+                .tokenType(TokenType.BEARER)
+                .revoked(false)
+                .expired(false)
+                .build();
+        tokenRepository.save(token);
+    }
+    private void revokeAllUserTokens(User user) {
+        var validUserTokens = tokenRepository.findAllValidTokenByUser(user.getId());
+        if (validUserTokens.isEmpty())
+            return;
+        validUserTokens.forEach(token -> {
+            token.setExpired(true);
+            token.setRevoked(true);
+        });
+        tokenRepository.saveAll(validUserTokens);
+    }
+
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
 
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()
                     //check if user entered and if not it will throw an exception
             ));
-            var user = repository.findByEmail(request.getEmail()).orElseThrow();
+            var user = repository.findByEmail(request.getUsername()).orElseThrow();
             var jwtToken = jwtService.generateToken(user);
-
+        revokeAllUserTokens(user);
+        saveUserToken(user, jwtToken);
             return AuthenticationResponse.builder()
                     .token(jwtToken)
                     .error(null)

@@ -1,4 +1,4 @@
-package com.halyoon.app.review.stay.media;
+package com.halyoon.app.stay.media;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

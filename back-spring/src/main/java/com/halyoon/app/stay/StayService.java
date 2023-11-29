@@ -1,9 +1,10 @@
-package com.halyoon.app.review.stay;
+package com.halyoon.app.stay;
 
-import com.halyoon.app.review.stay.media.ImageRepository;
-import com.halyoon.app.review.stay.media.StayImages;
+import com.halyoon.app.stay.media.ImageRepository;
+import com.halyoon.app.stay.media.StayImages;
 import com.halyoon.app.user.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +33,7 @@ public class StayService {
                 .bathrooms(stayRequest.getBathrooms())
                 .name(stayRequest.getName())
                 .type(stayRequest.getType())
-                .user(userService.getUser())
+//                .user(userService.getUser())
                 .price(stayRequest.getPrice())
                 .summary(stayRequest.getSummary())
                 .capacity(stayRequest.getCapacity())
@@ -48,4 +49,11 @@ public class StayService {
     public Stay getStayById(Integer id) {
         return  this.repository.getReferenceById(id);
     }
+
+    public List<Stay> getUserStays(Integer userId, PageRequest pageRequest) {
+        // Implement logic to retrieve stays for the given user ID and pagination
+        // You can use your repository or any other data access method here
+        return repository.findByUserId(userId, pageRequest).getContent();
+    }
+
 }

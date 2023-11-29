@@ -1,4 +1,4 @@
-package com.halyoon.app.review.stay;
+package com.halyoon.app.stay;
 
 
 import com.halyoon.app.review.Review;

@@ -121,41 +121,37 @@ export class UserService {
 
   public async logout() {
     try {
-
       const storedUserString = sessionStorage.getItem(this.STORAGE_KEY_LOGGEDIN_USER);
-      
       if (!storedUserString) {
-        // Handle the case where the user is not in session storage
         console.log('User not found in session storage');
         return;
       }
       const storedUser: User = JSON.parse(storedUserString);
-
-      // Assuming the token is stored in a 'token' property of the user object
       const token = storedUser.token;
 
       if (!token) {
-        // Handle the case where the token is not present in the user object
         console.log('Token not found in user object');
         return;
       }
-// Set the Authorization header with the Bearer token
-const headers = {
-  Authorization: `BEARER${token}`,
-};
 
-// Send the POST request with headers
-// await this.httpService.post(this.AUTH_URL + 'logout', {}, { headers }).toPromise();
+      // const headers = this.httpService.headers;
+
+   
+      // headers.set('Authorization', `Bearer${token}`);
 
 
-
+        const headers = {
+          "Authorization": `Bearer${token}`,
+        };
       await lastValueFrom(this.httpService.post(this.AUTH_URL + 'logout',{headers}))
+      console.log("asdsa" +token);
+      
       sessionStorage.clear()
-      // this.socketService.logout()
-      // this.socketService.off(this.socketService.SOCKET_EMIT_ORDER_FOR_HOST, this.hostFunction)
-      // this.socketService.off(this.socketService.SOCKET_EMIT_ORDER_FOR_USER, this.userFunction)
+      this.socketService.logout()
+      this.socketService.off(this.socketService.SOCKET_EMIT_ORDER_FOR_HOST, this.hostFunction)
+      this.socketService.off(this.socketService.SOCKET_EMIT_ORDER_FOR_USER, this.userFunction)
       this._user$.next(null)
-      window.location.assign('/')
+      // window.location.assign('/')
     } catch (err) {
       console.log('err:', err)
     }

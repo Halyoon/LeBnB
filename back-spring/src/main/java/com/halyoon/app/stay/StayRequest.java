@@ -1,4 +1,4 @@
-package com.halyoon.app.review.stay;
+package com.halyoon.app.stay;
 
 import lombok.Builder;
 import lombok.Data;

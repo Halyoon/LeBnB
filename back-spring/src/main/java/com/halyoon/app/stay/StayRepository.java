@@ -1,4 +1,4 @@
-package com.halyoon.app.review.stay;
+package com.halyoon.app.stay;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,6 +10,7 @@ import java.util.Optional;
 
 public interface StayRepository extends JpaRepository<Stay,Integer> {
     Page<Stay> findAll(Pageable pageable);
+    Page<Stay> findByUserId(Integer userId, Pageable pageable);
     @Query("SELECT COUNT(*) FROM Stay")
     Optional<Integer> Length();
 

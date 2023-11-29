@@ -1,6 +1,7 @@
-package com.halyoon.app.review.stay;
+package com.halyoon.app.stay;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +28,20 @@ public class StayController {
             return ResponseEntity.ok(e.getMessage());
         }
     }
+
+
+    @GetMapping({"/user-stays"})
+    public ResponseEntity<?> getUserStays(@RequestParam(defaultValue = "0",required = false) Integer page,@RequestParam(required = true) Integer hostId ,@RequestParam(defaultValue = "6",required = false) Integer size) {
+        try {
+            PageRequest pageRequest = PageRequest.of(page, size);
+            List<Stay> stays = this.service.getUserStays(hostId, pageRequest);
+            List<StayResponse> staysResponse = this.mapper.getStays(stays);
+            return ResponseEntity.ok(staysResponse);
+        } catch (Exception e) {
+            return ResponseEntity.ok(e.getMessage());
+        }
+    }
+
 
     @GetMapping({"/length"})
     public ResponseEntity<?> length() {

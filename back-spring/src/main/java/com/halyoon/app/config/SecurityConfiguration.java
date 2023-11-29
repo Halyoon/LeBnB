@@ -24,7 +24,8 @@ public class SecurityConfiguration {
     private static final String[] WHITE_LIST_URL = {
             "/api/stay/**",
             "/api/stay/length",
-            "/api/demo-controller"
+            "/api/demo-controller",
+
           };
 
     private final JwtAuthFilter jwtAuthFilter;
@@ -40,6 +41,8 @@ public class SecurityConfiguration {
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/auth/logout").permitAll()
                         .requestMatchers("/api/demo-controller").permitAll()
+                        .requestMatchers("/api/stay/create").permitAll()
+                        .requestMatchers("/api/stay/user-stays").permitAll()
                         .requestMatchers(GET,WHITE_LIST_URL).permitAll() //stayes list and length
                         .anyRequest().authenticated()
                 )
@@ -53,10 +56,7 @@ public class SecurityConfiguration {
                                 .addLogoutHandler(logoutHandler)
                                 .logoutSuccessHandler((request, response, authentication) -> SecurityContextHolder.clearContext())
                 )
-                .logout((logout) -> logout
-                        .logoutSuccessUrl("/api/demo-controller")
-                        .permitAll()
-                )
+
         ;
         return http.build();
     }

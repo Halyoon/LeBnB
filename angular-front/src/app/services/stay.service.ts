@@ -35,7 +35,7 @@ export class StayService {
 
   public query(filterBy: StayFilter) {
     const queryParams = this.getQueryParams(filterBy)
-    return this.httpService.get(this.STAY_URL + queryParams, null) as Observable<Stay[]>
+    return this.httpService.get(this.STAY_URL +"/user-stays" + queryParams, null) as Observable<Stay[]>
   }
 
   public async loadFullLength() {
@@ -51,8 +51,8 @@ export class StayService {
   }
 
   public save(stay: any) {
-    if (stay._id) return lastValueFrom(this.httpService.put(this.STAY_URL, stay))
-    return lastValueFrom(this.httpService.post(this.STAY_URL, stay))
+    if (stay._id) return lastValueFrom(this.httpService.put(this.STAY_URL + "/create", stay))
+    return lastValueFrom(this.httpService.post(this.STAY_URL + "/create", stay))
   }
 
   public getEmptyFilter() {

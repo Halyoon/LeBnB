@@ -7,9 +7,11 @@ import com.halyoon.app.token.TokenRepository;
 import com.halyoon.app.token.TokenType;
 import com.halyoon.app.user.Role;
 import com.halyoon.app.user.User;
+import com.halyoon.app.user.UserResponse;
 import com.halyoon.app.user.UserRespository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -60,15 +62,19 @@ public class AuthenticationService {
             var jwtToken = jwtService.generateToken(savedUser);
             saveUserToken(savedUser, jwtToken);
 
-            return AuthenticationResponse.builder().token(jwtToken)
-                    //.secretImageUri(tfaService.generateQrCodeImageUri(user.getSecret()))                    //.mfaEnabled(user.isMfaEnabled())
+            return AuthenticationResponse.builder()
+                    .token(jwtToken)
+                    .username(savedUser.getUsername())
+                    ._id(savedUser.getId())
+                    .fullname(savedUser.getFirstname())
+                    .imgUrl(savedUser.getImgUrl())
                     .build();
         }
 
     }
 
     private void saveUserToken(User user, String jwtToken) {
-        var token= Token.builder()
+        var token = Token.builder()
                 .user(user)
                 .token(jwtToken)
                 .tokenType(TokenType.BEARER)
@@ -77,6 +83,7 @@ public class AuthenticationService {
                 .build();
         tokenRepository.save(token);
     }
+
     private void revokeAllUserTokens(User user) {
         var validUserTokens = tokenRepository.findAllValidTokenByUser(user.getId());
         if (validUserTokens.isEmpty())
@@ -90,17 +97,25 @@ public class AuthenticationService {
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
 
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()
-                    //check if user entered and if not it will throw an exception
-            ));
-            var user = repository.findByEmail(request.getUsername()).orElseThrow();
-            var jwtToken = jwtService.generateToken(user);
-        revokeAllUserTokens(user);
-        saveUserToken(user, jwtToken);
-            return AuthenticationResponse.builder()
-                    .token(jwtToken)
-                    .error(null)
-                    .build();
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()
+                //check if user entered and if not it will throw an exception
+        ));
+        var validUser = repository.findByEmail(request.getUsername())
+                .orElseThrow(() -> new RuntimeException("User not found for email: " + request.getUsername()));
+UserResponse user = UserResponse.builder()
+        ._id(validUser.getId())
+        .build();
+
+        var jwtToken = jwtService.generateToken(validUser);
+        revokeAllUserTokens(validUser);
+        saveUserToken(validUser, jwtToken);
+        return AuthenticationResponse.builder()
+                .token(jwtToken)
+                .username(validUser.getUsername())
+                .fullname(validUser.getFirstname())
+                ._id(validUser.getId())
+                .imgUrl(validUser.getImgUrl())
+                .build();
 
 
     }

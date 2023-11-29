@@ -1,7 +1,7 @@
-package com.halyoon.app.review.stay;
+package com.halyoon.app.stay;
 
-import com.halyoon.app.review.stay.media.ImageRepository;
-import com.halyoon.app.review.stay.media.StayImages;
+import com.halyoon.app.stay.media.ImageRepository;
+import com.halyoon.app.stay.media.StayImages;
 import com.halyoon.app.user.User;
 import com.halyoon.app.user.UserResponse;
 import location.LocationResponse;

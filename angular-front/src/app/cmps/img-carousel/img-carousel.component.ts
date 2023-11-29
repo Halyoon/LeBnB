@@ -27,7 +27,7 @@ export class ImgCarouselComponent implements OnInit {
   currIdx = 0
 
   ngOnInit() {
-    this.isLikeActive()
+    // this.isLikeActive()
   }
 
   onClickArrow(ev: Event, diff: number) {
@@ -57,11 +57,11 @@ export class ImgCarouselComponent implements OnInit {
     return this.router.url.includes('user')
   }
 
-  isLikeActive() {
-    const user = this.userService.getUser()
-    if (!user) this.isLikeByUser = false
-    else this.isLikeByUser = this.stay.likedByUsers.includes(user._id)
-  }
+  // isLikeActive() {
+  //   const user = this.userService.getUser()
+  //   if (!user) this.isLikeByUser = false
+  //   else this.isLikeByUser = this.stay.likedByUsers.includes(user._id)
+  // }
 
   async onClickLike(ev: Event) {
     ev.stopPropagation()

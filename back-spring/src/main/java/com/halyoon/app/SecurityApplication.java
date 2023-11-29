@@ -1,9 +1,9 @@
 package com.halyoon.app;
 
-import com.halyoon.app.review.stay.Stay;
-import com.halyoon.app.review.stay.StayRepository;
-import com.halyoon.app.review.stay.media.ImageRepository;
-import com.halyoon.app.review.stay.media.StayImages;
+import com.halyoon.app.stay.Stay;
+import com.halyoon.app.stay.StayRepository;
+import com.halyoon.app.stay.media.ImageRepository;
+import com.halyoon.app.stay.media.StayImages;
 import com.halyoon.app.user.Role;
 import com.halyoon.app.user.User;
 import com.halyoon.app.user.UserRespository;

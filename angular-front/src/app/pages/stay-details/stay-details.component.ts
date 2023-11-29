@@ -49,7 +49,7 @@ export class StayDetailsComponent implements OnInit, OnDestroy {
       this.stay = data['stay']
     })
     this.user = this.userService.getUser()
-    this.isLikeActive()
+    // this.isLikeActive()
   }
 
   scrollTo(nav: string) {
@@ -81,10 +81,10 @@ export class StayDetailsComponent implements OnInit, OnDestroy {
     return (rate / 6).toFixed(2)
   }
 
-  isLikeActive() {
-    if (!this.user) this.isLikeByUser = false
-    else this.isLikeByUser = this.stay.likedByUsers.includes(this.user._id)
-  }
+  // isLikeActive() {
+  //   if (!this.user) this.isLikeByUser = false
+  //   else this.isLikeByUser = this.stay.likedByUsers.includes(this.user._id)
+  // }
 
   async onClickLike(ev: Event) {
     ev.stopPropagation()

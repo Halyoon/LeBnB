@@ -54,29 +54,55 @@ public class ApplicationConfig {
         return config.getAuthenticationManager();
     }
 
+
     @Bean
     public CorsFilter corsFilter() {
-        final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        final CorsConfiguration config = new CorsConfiguration();
-        config.setAllowCredentials(true);
-        config.setAllowedOrigins(Collections.singletonList("http://localhost:4200"));
-        config.setAllowedHeaders(Arrays.asList(
-                ORIGIN,
-                CONTENT_TYPE,
-                ACCEPT,
-                AUTHORIZATION
-        ));
-        config.setAllowedMethods(Arrays.asList(
-                GET.name(),
-                POST.name(),
-                DELETE.name(),
-                PUT.name(),
-                PATCH.name()
-        ));
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowCredentials(true); // you USUALLY want this
+        // likely you should limit this to specific origins
+        config.addAllowedOrigin("http://localhost:4200");
+        config.addAllowedHeader("*");
+        config.addAllowedMethod("GET");
+        config.addAllowedMethod("POST");
+        config.addAllowedMethod("PUT");
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
-
     }
+
+
+//    @Bean
+//    public CorsFilter corsFilter() {
+//        final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//        final CorsConfiguration config = new CorsConfiguration();
+//        config.setAllowCredentials(true);
+//        config.setAllowedOrigins(Collections.singletonList("http://localhost:4200"));
+////        config.setAllowedHeaders(Arrays.asList(
+////                ORIGIN,
+////                CONTENT_TYPE,
+////                ACCEPT,
+////                AUTHORIZATION
+////        ));
+//
+////        config.addAllowedHeader("*");
+//
+//        config.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
+//                "Accept", "Jwt-Token", "Authorization", "Origin, Accept", "X-Requested-With",
+//                "Access-Control-Request-Method", "Access-Control-Request-Headers"));
+//        config.setExposedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Jwt-Token", "Authorization",
+//                "Access-Control-Allow-Origin", "Access-Control-Allow-Origin", "Access-Control-Allow-Credentials"));
+//        config.setAllowedMethods(Arrays.asList(
+//                GET.name(),
+//                POST.name(),
+//                DELETE.name(),
+//                PUT.name(),
+//                PATCH.name()
+//        ));
+//        source.registerCorsConfiguration("/**", config);
+//        return new CorsFilter(source);
+//
+//    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {

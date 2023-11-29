@@ -20,6 +20,5 @@ public class Amenity {
     @Id
     @GeneratedValue
     private Integer id;
-
     private String name;
 }

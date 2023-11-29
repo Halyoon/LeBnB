@@ -1,7 +1,9 @@
 package com.halyoon.app.stay;
 
+import com.halyoon.app.stay.host.HostRequest;
 import com.halyoon.app.stay.media.ImageRepository;
 import com.halyoon.app.stay.media.StayImages;
+import com.halyoon.app.user.User;
 import com.halyoon.app.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -28,12 +30,24 @@ public class StayService {
     }
 
     public Stay saveStay(StayRequest stayRequest) {
+        HostRequest host =stayRequest.getHost();
+        User user = User.builder()
+                .id(host.get_id())
+                .email(host.getFullname())
+                .about(host.getAbout())
+                .firstname(host.getFullname())
+                .responseTime(host.getResponseTime())
+                .isSuperhost(host.isSuperhost())
+                .location(host.getLocation())
+                .createdAt(host.getCreateAt())
+                .imgUrl(host.getPictureUrl())
+                .build();
         Stay newstay = Stay.builder()
                 .bedrooms(stayRequest.getBedrooms())
                 .bathrooms(stayRequest.getBathrooms())
                 .name(stayRequest.getName())
                 .type(stayRequest.getType())
-//                .user(userService.getUser())
+                .user(user)
                 .price(stayRequest.getPrice())
                 .summary(stayRequest.getSummary())
                 .capacity(stayRequest.getCapacity())

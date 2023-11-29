@@ -21,7 +21,6 @@ public class Location {
     @Id
     @GeneratedValue
     private Integer id;
-
     private String country;
     private String countryCode;
     private String city;

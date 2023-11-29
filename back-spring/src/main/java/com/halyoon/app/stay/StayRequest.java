@@ -1,5 +1,6 @@
 package com.halyoon.app.stay;
 
+import com.halyoon.app.stay.host.HostRequest;
 import lombok.Builder;
 import lombok.Data;
 
@@ -11,10 +12,13 @@ public class StayRequest {
 
     private String name;
     private String type;
-    private Double price;
+    private double price;
     private String summary;
     private Integer bedrooms;
     private Integer bathrooms;
+    private HostRequest host;
     private int capacity;
+    private String roomType;
     private List<String> imgUrls;
+    private List<String> amenities;
 }

@@ -3,7 +3,6 @@ package com.halyoon.app.stay;
 import com.halyoon.app.like.LikeService;
 import com.halyoon.app.like.LikedStay;
 import com.halyoon.app.review.Review;
-import com.halyoon.app.review.ReviewRequest;
 import com.halyoon.app.review.ReviewerRequest;
 import com.halyoon.app.review.ReviewerService;
 import lombok.RequiredArgsConstructor;

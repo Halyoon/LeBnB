@@ -2,7 +2,7 @@ package com.halyoon.app.like;
 
 import com.halyoon.app.stay.Stay;
 import com.halyoon.app.stay.StayRepository;
-import com.halyoon.app.stay.media.ImageRepository;
+import com.halyoon.app.media.ImageRepository;
 import com.halyoon.app.user.User;
 import com.halyoon.app.user.UserRespository;
 import com.halyoon.app.user.UserService;

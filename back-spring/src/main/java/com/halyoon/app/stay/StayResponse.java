@@ -30,6 +30,6 @@ public class StayResponse {
     private List<String> imgUrls;
     private List<String> likedByUsers;
     private UserResponse host;
-    private List<Review> reviews;
+    private List reviews;
 
 }

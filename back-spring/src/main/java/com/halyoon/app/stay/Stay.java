@@ -5,7 +5,7 @@ import com.halyoon.app.amenity.Amenity;
 import com.halyoon.app.location.Location;
 import com.halyoon.app.review.Review;
 import com.halyoon.app.like.LikedStay;
-import com.halyoon.app.stay.media.StayImages;
+import com.halyoon.app.media.StayImages;
 import com.halyoon.app.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

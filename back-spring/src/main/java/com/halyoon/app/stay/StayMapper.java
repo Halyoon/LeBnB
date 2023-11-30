@@ -2,9 +2,11 @@ package com.halyoon.app.stay;
 
 import com.halyoon.app.like.LikedStay;
 import com.halyoon.app.review.Review;
+import com.halyoon.app.review.ReviewerRequest;
+import com.halyoon.app.review.ReviewerResponse;
 import com.halyoon.app.review.ReviewerService;
-import com.halyoon.app.stay.media.ImageRepository;
-import com.halyoon.app.stay.media.StayImages;
+import com.halyoon.app.media.ImageRepository;
+import com.halyoon.app.media.StayImages;
 import com.halyoon.app.user.User;
 import com.halyoon.app.user.UserResponse;
 import location.LocationResponse;
@@ -14,7 +16,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -63,11 +64,9 @@ public class StayMapper {
             //map images
             var images = mapimages(stay.getImages());
             var likedByUsers = mapToStayIds(stay.getLikedByUsers());
-            var reviews = reviewerService.getReviewsForStay(stay.getId());
+//            List<Review> reviews = reviewerService.getReviewsForStay(stay.getId());
 
-            if (reviews.isEmpty()) {
-                reviews = Collections.emptyList();
-            }
+           List<ReviewerResponse> reviews = mapToReviews(stay.getReviews());
             var stayResponse =
                     StayResponse.builder()
                             ._id(stay.getId())
@@ -81,7 +80,7 @@ public class StayMapper {
                             .loc(Location)
                             .likedByUsers(likedByUsers)
                             .amenities(Collections.emptyList())
-                            .reviews(Collections.emptyList())
+                            .reviews(reviews)
                             .capacity(stay.getCapacity())
                             .host(hostResponse).build();
 
@@ -90,6 +89,21 @@ public class StayMapper {
         }
         return list;
     }
+
+    private List<ReviewerResponse> mapToReviews(List<Review> reviews) {
+        return reviews.stream()
+                .map(review -> ReviewerResponse.builder()
+                        .at(review.getReviewAt())
+                        .txt(review.getReviewText())
+                        .by(ReviewerResponse.By.builder()
+                                ._id(review.getReviewer().getId())
+                                .imgUrl(review.getReviewer().getImgUrl())
+                                .fullname(review.getReviewer().getFullname())
+                                .build())
+                        .build())
+                .collect(Collectors.toList());
+    }
+
 
 
     public static List<String> mapToStayIds(List<LikedStay> likedStays) {

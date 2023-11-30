@@ -1,4 +1,4 @@
-package com.halyoon.app.stay.media;
+package com.halyoon.app.media;
 
 import com.halyoon.app.stay.Stay;
 import jakarta.persistence.*;

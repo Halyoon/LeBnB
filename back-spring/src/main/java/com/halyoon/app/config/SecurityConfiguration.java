@@ -26,6 +26,7 @@ public class SecurityConfiguration {
             "/api/stay/**",
             "/api/stay/length",
             "/api/demo-controller",
+            "/"
 
           };
     private static final String[] WHITE_LIST_URL_POST = {

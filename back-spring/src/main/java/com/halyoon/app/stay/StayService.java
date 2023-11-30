@@ -1,10 +1,9 @@
 package com.halyoon.app.stay;
 
-import com.halyoon.app.like.LikedStay;
 import com.halyoon.app.like.LikedStayRepository;
 import com.halyoon.app.stay.host.HostRequest;
-import com.halyoon.app.stay.media.ImageRepository;
-import com.halyoon.app.stay.media.StayImages;
+import com.halyoon.app.media.ImageRepository;
+import com.halyoon.app.media.StayImages;
 import com.halyoon.app.user.User;
 import com.halyoon.app.user.UserRespository;
 import com.halyoon.app.user.UserService;

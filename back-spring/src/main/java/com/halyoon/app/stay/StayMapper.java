@@ -1,5 +1,8 @@
 package com.halyoon.app.stay;
 
+import com.halyoon.app.like.LikedStay;
+import com.halyoon.app.review.Review;
+import com.halyoon.app.review.ReviewerService;
 import com.halyoon.app.stay.media.ImageRepository;
 import com.halyoon.app.stay.media.StayImages;
 import com.halyoon.app.user.User;
@@ -11,19 +14,22 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class StayMapper {
 
     private final ImageRepository imageRepository;
+    private final ReviewerService reviewerService;
 
     private UserResponse mapHost(User user) {
         if (user == null)
             return null;
         return UserResponse.builder()
-                ._id(user.getId())
-                .fullname(user.getFirstname() + " " + user.getLastname())
+                ._id(user.getId().toString())
+                .fullname(user.getFullname())
                 .createAt(user.getCreatedAt())
                 .about(user.getAbout())
                 .location(user.getLocation())
@@ -55,8 +61,13 @@ public class StayMapper {
             var hostResponse = mapHost(stay.getUser());
             var Location = maploc();
             //map images
-            var images = map(stay.getImages());
+            var images = mapimages(stay.getImages());
+            var likedByUsers = mapToStayIds(stay.getLikedByUsers());
+            var reviews = reviewerService.getReviewsForStay(stay.getId());
 
+            if (reviews.isEmpty()) {
+                reviews = Collections.emptyList();
+            }
             var stayResponse =
                     StayResponse.builder()
                             ._id(stay.getId())
@@ -68,6 +79,7 @@ public class StayMapper {
                             .imgUrls(images)
                             .type(stay.getType())
                             .loc(Location)
+                            .likedByUsers(likedByUsers)
                             .amenities(Collections.emptyList())
                             .reviews(Collections.emptyList())
                             .capacity(stay.getCapacity())
@@ -79,7 +91,17 @@ public class StayMapper {
         return list;
     }
 
-    private List<String> map(List<StayImages> images) {
+
+    public static List<String> mapToStayIds(List<LikedStay> likedStays) {
+        return likedStays.stream()
+                .map(LikedStay::getUser)
+                .map(User::getId)
+                .map(String::valueOf)  // Convert Integer to String
+                .collect(Collectors.toList());
+    }
+
+    private List<String> mapimages(List<StayImages> images) {
+
         return images.stream().map(x -> x.getImageUrl()).toList();
     }
 }

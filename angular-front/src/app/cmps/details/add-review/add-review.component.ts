@@ -50,14 +50,18 @@ export class AddReviewComponent {
 
   async onAddReview() {
     const user = this.userService.getUser()
+    let newstay;
+    let statReviews;
     const review = this.form.value
     if (!user) this.snackBar.open('Please login first', 'Close', { duration: 3000 })
     else if(!review.text) this.snackBar.open('Please add review text', 'Close', { duration: 3000 })
     else {
       this.stay.reviews.unshift(this.makeReview(review.text, user))
+      newstay=await this.stayService.saveReview(this.stay ,this.makeReview(review.text, user)) as Stay
       delete review.text
       this.stay.statReviews = this.makeStarRate(review)
-      this.stay = await this.stayService.save(this.stay) as Stay
+      statReviews=await this.stayService.saveStatReview(this.stay ,this.makeStarRate(review)) as StatReviews
+      this.stay = await this.stayService.save(this.stay ,user) as Stay
       this.snackBar.open('Review added successfully', 'Close', { duration: 3000 })
     }
   }

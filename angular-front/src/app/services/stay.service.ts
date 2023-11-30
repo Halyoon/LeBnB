@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Review, Stay, StayFilter } from '../models/stay.model';
+import { Review, StatReviews, Stay, StayFilter } from '../models/stay.model';
 import { HttpService } from './http.service';
 import { lastValueFrom } from 'rxjs';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -50,9 +51,36 @@ export class StayService {
     return this.httpService.get(this.STAY_URL + '/' + stayId, null) as Observable<Stay>
   }
 
-  public save(stay: any) {
-    if (stay._id) return lastValueFrom(this.httpService.put(this.STAY_URL + "/create", stay))
+  public like(stay: any ,user :User) {
+    const requestBody = {
+      stayId: stay._id,
+      userId: user._id
+    };
+    return lastValueFrom(this.httpService.post(this.STAY_URL + "/like", requestBody))
+  }
+
+  public save(stay: any ,user :User) {
+    const requestBody = {
+      stayId: stay._id,
+      userId: user._id
+    };
+    if (stay._id) return this.like(stay,user);
     return lastValueFrom(this.httpService.post(this.STAY_URL + "/create", stay))
+  }
+
+  public saveReview(stay: any ,review :Review) {
+    const requestBody = {
+      stayId: stay._id,
+      review: review
+    };
+    return lastValueFrom(this.httpService.post(this.STAY_URL + "/review", requestBody))
+  }
+  public saveStatReview(stay: any ,statReviews :StatReviews) {
+    const requestBody = {
+      stayId: stay._id,
+      statReviews: statReviews
+    };
+    return lastValueFrom(this.httpService.post(this.STAY_URL + "/review", requestBody))
   }
 
   public getEmptyFilter() {

@@ -27,7 +27,7 @@ export class ImgCarouselComponent implements OnInit {
   currIdx = 0
 
   ngOnInit() {
-    // this.isLikeActive()
+    this.isLikeActive()
   }
 
   onClickArrow(ev: Event, diff: number) {
@@ -57,11 +57,11 @@ export class ImgCarouselComponent implements OnInit {
     return this.router.url.includes('user')
   }
 
-  // isLikeActive() {
-  //   const user = this.userService.getUser()
-  //   if (!user) this.isLikeByUser = false
-  //   else this.isLikeByUser = this.stay.likedByUsers.includes(user._id)
-  // }
+  isLikeActive() {
+    const user = this.userService.getUser()
+    if (!user) this.isLikeByUser = false
+    else this.isLikeByUser = this.stay.likedByUsers.includes(user._id)
+  }
 
   async onClickLike(ev: Event) {
     ev.stopPropagation()
@@ -71,7 +71,7 @@ export class ImgCarouselComponent implements OnInit {
       else {
         if (this.isLikeByUser) this.stay.likedByUsers = this.stay.likedByUsers.filter(userId => userId !== user._id)
         else this.stay.likedByUsers.push(user._id)
-        this.stay = await this.stayService.save(this.stay) as Stay
+        this.stay = await this.stayService.save(this.stay ,user) as Stay
         this.isLikeByUser = !this.isLikeByUser
         const msg = this.isLikeByUser ? 'Stay added to wishlist' : 'Stay removed from wishlist'
         if (this.isUserPage()) this.stayService.loadStays()

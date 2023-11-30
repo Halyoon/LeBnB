@@ -19,7 +19,7 @@ public class AuthenticationResponse {
     private String fullname;
     private Integer userMsg;
     private Integer hostMsg;
-    private Integer _id;
+    private String _id;
     private String username;
     private String imgUrl;
 

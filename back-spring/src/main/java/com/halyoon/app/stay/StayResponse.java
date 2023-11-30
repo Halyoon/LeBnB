@@ -28,6 +28,7 @@ public class StayResponse {
     private List<String> amenities;
     private int capacity;
     private List<String> imgUrls;
+    private List<String> likedByUsers;
     private UserResponse host;
     private List<Review> reviews;
 

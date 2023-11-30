@@ -41,22 +41,15 @@ public class AuthenticationService {
                 throw new IllegalStateException("User exists (:>");
             }
 
-            var user = User.builder().firstname(request.getFullname())
-                    .lastname(request.getLastname())
+            var user = User.builder().fullname(request.getFullname())
                     .imgUrl(request.getImgUrl())
+                    .userMsg(request.getUserMsg())
+                    .userMsg(request.getHostMsg())
                     .email(request.getUsername())
                     .createdAt(new Date())
-                    .about(request.getAbout())
-                    .location(request.getLocation())
-                    .isSuperhost(request.isSuperhost())
-                    .responseTime(request.getResponseTime())
                     .password(passwordEncoder.encode(request.getPassword()))
                     .role(Role.USER)
-                    .mfaEnabled(request.isMfaEnabled())
                     .build();
-
-            if (request.isMfaEnabled())
-                user.setSecret(tfaService.generateNewSecret());
             var savedUser = repository.save(user);
 
             var jwtToken = jwtService.generateToken(savedUser);
@@ -65,8 +58,8 @@ public class AuthenticationService {
             return AuthenticationResponse.builder()
                     .token(jwtToken)
                     .username(savedUser.getUsername())
-                    ._id(savedUser.getId())
-                    .fullname(savedUser.getFirstname())
+                    ._id(savedUser.getId().toString())
+                    .fullname(savedUser.getFullname())
                     .imgUrl(savedUser.getImgUrl())
                     .build();
         }
@@ -103,7 +96,7 @@ public class AuthenticationService {
         var validUser = repository.findByEmail(request.getUsername())
                 .orElseThrow(() -> new RuntimeException("User not found for email: " + request.getUsername()));
 UserResponse user = UserResponse.builder()
-        ._id(validUser.getId())
+        ._id(validUser.getId().toString())
         .build();
 
         var jwtToken = jwtService.generateToken(validUser);
@@ -112,8 +105,8 @@ UserResponse user = UserResponse.builder()
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .username(validUser.getUsername())
-                .fullname(validUser.getFirstname())
-                ._id(validUser.getId())
+                .fullname(validUser.getFullname())
+                ._id(validUser.getId().toString())
                 .imgUrl(validUser.getImgUrl())
                 .build();
 
@@ -133,7 +126,6 @@ UserResponse user = UserResponse.builder()
 
         return AuthenticationResponse.builder()
                 .token(jwt)
-//                .mfaEnabled(user.isMfaEnabled())
                 .build();
 
     }

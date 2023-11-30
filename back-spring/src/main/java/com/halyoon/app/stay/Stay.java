@@ -4,6 +4,7 @@ package com.halyoon.app.stay;
 import com.halyoon.app.amenity.Amenity;
 import com.halyoon.app.location.Location;
 import com.halyoon.app.review.Review;
+import com.halyoon.app.like.LikedStay;
 import com.halyoon.app.stay.media.StayImages;
 import com.halyoon.app.user.User;
 import jakarta.persistence.*;
@@ -39,6 +40,8 @@ public class Stay {
     @OneToMany(mappedBy = "stay", cascade = CascadeType.ALL)
     private List<StayImages> images;
 
+    @OneToMany(mappedBy = "stay")
+    private List<LikedStay> likedByUsers;
 
     @ManyToMany
     @JoinTable(name = "stay_amenity", joinColumns = @JoinColumn(name = "stay_id"), inverseJoinColumns = @JoinColumn(name = "amenity_id"))

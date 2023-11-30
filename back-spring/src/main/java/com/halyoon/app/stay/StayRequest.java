@@ -18,6 +18,7 @@ public class StayRequest {
     private Integer bathrooms;
     private HostRequest host;
     private int capacity;
+    private List<String> LikedStay;
     private String roomType;
     private List<String> imgUrls;
     private List<String> amenities;

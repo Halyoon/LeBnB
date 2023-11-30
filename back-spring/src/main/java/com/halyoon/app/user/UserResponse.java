@@ -12,7 +12,7 @@ import java.util.Date;
 @Builder
 public class UserResponse {
 
-    private Integer _id;
+    private String _id;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timezone = "UTC")
     private Date createAt;
     private String fullname;

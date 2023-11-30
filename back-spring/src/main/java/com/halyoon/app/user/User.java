@@ -1,5 +1,6 @@
 package com.halyoon.app.user;
 
+import com.halyoon.app.like.LikedStay;
 import com.halyoon.app.token.Token;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -32,31 +33,27 @@ public class User implements UserDetails {
 // df value well give the best solution for the table
 
 
-    private String firstname;
-    private String lastname;
+    private String fullname;
     private String email;
     private String password;
-    private boolean mfaEnabled;
     @Enumerated(EnumType.STRING)
     private Role role;
     private String secret;
     private String imgUrl;
     private boolean isSuperhost;
-
+    private Long userMsg;
+    private Long hostMsg;
+    private String location;
     @OneToMany(mappedBy = "user")
     private List<Token> tokens;
-
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, updatable = false)
     private Date createdAt = new Date();
-
-    private String location;
-    //  @LOB TO HANDLE LARGE text
-
     private String about;
     private String responseTime;
 
-
+    @OneToMany(mappedBy = "user")
+    private List<LikedStay> likedStays;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

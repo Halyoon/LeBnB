@@ -58,7 +58,7 @@ export class EditStayComponent {
     if (!this.checkValidation()) return
     this.stay.loc.address = `${address}, ${city}, ${country}`
     try {
-      await this.stayService.save(this.stay)
+      await this.stayService.save(this.stay,user)
       this.snackBar.open('Stay saved successfully', 'Close', { duration: 3000 })
       this.router.navigate(['/user/stays'])
     } catch (err) {

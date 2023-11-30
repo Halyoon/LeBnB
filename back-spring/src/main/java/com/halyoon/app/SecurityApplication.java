@@ -39,11 +39,9 @@ public class SecurityApplication {
 
 		// Create and save a user
 		User user = User.builder()
-				.firstname("John")
-				.lastname("Doe")
+				.fullname("John and Doe")
 				.email("john.doe@example.com")
 				.password("password123")
-				.mfaEnabled(true)
 				.role(Role.USER)
 				.secret("secret123")
 				.imgUrl("profile.jpg")

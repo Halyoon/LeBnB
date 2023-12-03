@@ -62,7 +62,6 @@ public class ApplicationConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true); // you USUALLY want this
         // likely you should limit this to specific origins
-        config.addAllowedOrigin("http://localhost:4200");
         config.addAllowedHeader("*");
         config.addAllowedMethod("GET");
         config.addAllowedMethod("POST");

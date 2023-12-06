@@ -19,9 +19,9 @@ public class HomeController {
     public String getOrderedList(Model model) {
 
         Map<String, String> items = new HashMap<>();
-        items.put("Stays", "https://lebnb-api.mahdishehadi.com/api/stay");
-        items.put("Stays Length", "https://lebnb-api.mahdishehadi.com/api/stay/length");
-        items.put("Like a stay", "https://lebnb-api.mahdishehadi.com/api/stay/length");
+        items.put("Stays", "/api/stay");
+        items.put("Stays Length", "/api/stay/length");
+        items.put("Like a stay", "/api/stay/length");
 
         model.addAttribute("items", items);
 

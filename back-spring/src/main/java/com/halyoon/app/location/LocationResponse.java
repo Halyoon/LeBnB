@@ -1,4 +1,4 @@
-package location;
+package com.halyoon.app.location;
 
 import lombok.Builder;
 import lombok.Data;

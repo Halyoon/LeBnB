@@ -1,9 +1,8 @@
 package com.halyoon.app.stay;
 
 
-import com.halyoon.app.review.Review;
 import com.halyoon.app.user.UserResponse;
-import location.LocationResponse;
+import com.halyoon.app.location.LocationResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

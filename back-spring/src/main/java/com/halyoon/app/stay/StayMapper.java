@@ -2,14 +2,13 @@ package com.halyoon.app.stay;
 
 import com.halyoon.app.like.LikedStay;
 import com.halyoon.app.review.Review;
-import com.halyoon.app.review.ReviewerRequest;
 import com.halyoon.app.review.ReviewerResponse;
 import com.halyoon.app.review.ReviewerService;
 import com.halyoon.app.media.ImageRepository;
 import com.halyoon.app.media.StayImages;
 import com.halyoon.app.user.User;
 import com.halyoon.app.user.UserResponse;
-import location.LocationResponse;
+import com.halyoon.app.location.LocationResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

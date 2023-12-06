@@ -1,9 +1,9 @@
 spring:
   datasource:
-    url: jdbc:postgresql://monorail.proxy.rlwy.net:27054/railway
+    url: jdbc:postgresql://lebnbdb.cl1kjmd48yh7.us-east-2.rds.amazonaws.com/lebnbDB
     #jdbc:postgresql://localhost:5432/jwt_security
     username: postgres
-    password: 1D-gbgEgEb1GGF6Cd6F4c--1acbD*fdd
+    password: 81304012
     # newdb 1D-gbgEgEb1GGF6Cd6F4c--1acbD*fdd
 #    FddEFffB6b26-F51aF3aaEaadbb6dCFC
     driver-class-name: org.postgresql.Driver

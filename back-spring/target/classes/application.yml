@@ -1,4 +1,9 @@
 spring:
+  webmvc:
+    cors:
+      allowed-origins: https://lebnb.mahdishehadi.com
+      allowed-methods: GET, POST, PUT, DELETE
+      allowed-headers: "*"
   datasource:
     url: jdbc:postgresql://lebnbdb.cl1kjmd48yh7.us-east-2.rds.amazonaws.com/lebnbDB
     #jdbc:postgresql://localhost:5432/jwt_security
@@ -23,3 +28,4 @@ application:
       expiration: 86400000 # a day
       refresh-token:
         expiration: 604800000 # 7 days
+

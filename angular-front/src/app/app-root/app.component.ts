@@ -14,5 +14,5 @@ export class AppComponent {
     translate.use('en')
   }
 
-  title = 'airbnb';
+  title = 'lebnb';
 }

@@ -15,7 +15,10 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/api/stay")
 @RequiredArgsConstructor
+//@CrossOrigin(origins = {"http://localhost:4200", "https://lebnb.mahdishehadi.com"})
+@CrossOrigin(origins = "https://lebnb.mahdishehadi.com")
 public class StayController {
+
 
 
     private final StayService stayService;

@@ -1,5 +1,5 @@
 docker image build:
-docker buildx build --platform linux/amd64 -t mahdishehadi/lebnb-springboot-aws:1.0
+docker buildx build --platform linux/amd64 -t mahdishehadi/lebnb-springboot-aws:1.0 .
 
 docker buildx build --platform linux/amd64 -t (username)/(name of the image):(version)
 

@@ -4,17 +4,20 @@ WORKDIR /app
 
 COPY package.json ./
 
-RUN npm install
+RUN npm install --force 
+RUN npm run --configuration=production
 
 COPY . .
 
 RUN npm run build
 
-FROM nginx:1.23-alpine AS prod
+FROM nginx:1.23
+
+COPY ./nginx/nginx.config /etc/nginx/nginx.config
 
 WORKDIR /app
 
-COPY --from=builder /app/dist ./
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 EXPOSE 80
 

@@ -65,6 +65,7 @@ public class ApplicationConfig {
         config.addAllowedHeader("*");
         config.addAllowedMethod("GET");
         config.addAllowedMethod("POST");
+        config.setAllowedOrigins(Arrays.asList("http://localhost:4200", "https://lebnb.mahdishehadi.com"));
         config.addAllowedMethod("PUT");
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);

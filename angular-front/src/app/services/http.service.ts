@@ -8,7 +8,8 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
-  BASE_URL = isDevMode() ? '//localhost:8080/api/' : '/api/'
+  // BASE_URL = isDevMode() ? '//localhost:8080/api/' : '/api/'
+  BASE_URL='https://lebnb-api.mahdishehadi.com/api/'
   headers = new HttpHeaders({
   'Content-Type': 'application/json',
   'Authorization': 'Bearer <token>',

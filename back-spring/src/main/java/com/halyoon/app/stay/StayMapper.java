@@ -43,12 +43,13 @@ public class StayMapper {
     private LocationResponse maploc() {
 
         return LocationResponse.builder()
-                .address("Lahaina, HI, United States")
-                .lat(-156.6917)
-                .lan(20.93792)
-                .city("Maui")
-                .country("United States")
-                .countryCode("US")
+                .address("Beirut, Lebanon")
+                .lat(33.8938)
+                .lan(35.5018)
+                .city("Beirut")
+                .country("Lebanon")
+                .countryCode("LB")
+
                 .build();
     }
 

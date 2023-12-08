@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "prod" :"ng build --configuration=production",
     "build:stats": "ng build --stats-json",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -52,7 +53,7 @@
   "devDependencies": {
     "@angular-builders/custom-webpack": "^15.0.0",
     "@angular-devkit/build-angular": "^15.1.6",
-    "@angular/cli": "~15.1.6",
+    "@angular/cli": "^15.2.10",
     "@angular/compiler-cli": "^15.1.0",
     "@nguniversal/builders": "^15.2.1",
     "@types/googlemaps": "^3.43.3",

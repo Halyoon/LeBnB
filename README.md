@@ -32,8 +32,9 @@ The database is Postgres
 Screen shot db
 
 ## Deployed to AWS EC2
+Docker and EC2 NginX
 
-Screen shot to AWS
+![image](https://github.com/Halyoon/LeBnB/assets/113033930/8fe37e85-18f1-4bc2-be3c-46aeee88f0c1)
 
 ## Business Model Canvas
 

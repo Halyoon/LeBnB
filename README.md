@@ -1,12 +1,21 @@
 ## Lebn: A Lebanon Airbnb Clone
 
-https://www.youtube.com/watch?v=D7traoBp5BQ
 
 Lebn is a platform that connects travelers with homeowners in Lebanon, allowing them to book unique and affordable accommodations. We believe that everyone should have the opportunity to experience the beauty of Lebanon, and we are committed to making travel more accessible and affordable for all.
 
 Lebn offers a wide variety of accommodations, from budget-friendly hostels to luxury villas. With Lebn, you can stay in a traditional Lebanese home, a modern apartment, or even a glamping tent in the mountains. No matter what your budget or travel style is, Lebn has the perfect accommodation for you.
 
-In addition to offering a wide range of accommodations, Lebn also offers a variety of features and services to make your trip to Lebanon as smooth and enjoyable as possible. For example, we offer:
+In addition to offering a wide range of accommodations, Lebn also offers a variety of features and services to make your trip to Lebanon as smooth and enjoyable as possible.
+
+Angular Demo Link:
+https://lebnb.mahdishehadi.com/
+
+Spring API Link
+https://lebnb-api.mahdishehadi.com/
+
+
+![image](https://github.com/Halyoon/LeBnB/assets/113033930/4a160401-33f2-47e4-af42-9acb1775c120)
+
 ## Business Model Canvas
 
 Lebnb follows a well-defined business model to drive its operations and revenue generation. The Business Model Canvas is a strategic tool that outlines the key components of the business model. Here's a brief overview of how Lebnb's business model canvas is structured:

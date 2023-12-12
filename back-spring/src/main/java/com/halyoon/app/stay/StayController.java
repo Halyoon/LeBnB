@@ -20,7 +20,6 @@ import java.util.List;
 public class StayController {
 
 
-
     private final StayService stayService;
     private final StayMapper mapper;
     private final LikeService likeService;
@@ -35,7 +34,6 @@ public class StayController {
                 List<StayResponse> staysResponse = this.mapper.getStays(stays);
                 return ResponseEntity.ok(staysResponse);
             } else {
-
                 List<Stay> stays = this.stayService.getStays(pageRequest);
                 List<StayResponse> staysResponse = this.mapper.getStays(stays);
                 return ResponseEntity.ok(staysResponse);

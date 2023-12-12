@@ -21,14 +21,13 @@ export class languageModalComponent {
   }
 
   languages = [
-    { language: 'עברית', country: 'ישראל', isSuggested: true, currLang: 'he' },
     { language: 'English', country: 'United States', isSuggested: true, currLang: 'en' },
     { language: 'Deutsch', country: 'Deutschland', isSuggested: false, currLang: 'de' },
     { language: 'Français', country: 'France', isSuggested: false, currLang: 'fr' },
     { language: 'Italiano', country: 'Italia', isSuggested: false, currLang: 'it' },
     { language: 'Español', country: 'España', isSuggested: false, currLang: 'es' },
     { language: 'Русский', country: 'Россия', isSuggested: false, currLang: 'ru' },
-    { language: 'عربيه', country: 'المملكة العربية السعودية', isSuggested: false, currLang: 'ar' },
+    { language: 'عربيه', country: 'المملكة العربية السعودية', isSuggested: true, currLang: 'ar' },
   ]
 
   get Suggested() {

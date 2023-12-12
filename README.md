@@ -1,12 +1,41 @@
 ## Lebn: A Lebanon Airbnb Clone
 
-https://www.youtube.com/watch?v=D7traoBp5BQ
 
 Lebn is a platform that connects travelers with homeowners in Lebanon, allowing them to book unique and affordable accommodations. We believe that everyone should have the opportunity to experience the beauty of Lebanon, and we are committed to making travel more accessible and affordable for all.
 
 Lebn offers a wide variety of accommodations, from budget-friendly hostels to luxury villas. With Lebn, you can stay in a traditional Lebanese home, a modern apartment, or even a glamping tent in the mountains. No matter what your budget or travel style is, Lebn has the perfect accommodation for you.
 
-In addition to offering a wide range of accommodations, Lebn also offers a variety of features and services to make your trip to Lebanon as smooth and enjoyable as possible. For example, we offer:
+In addition to offering a wide range of accommodations, Lebn also offers a variety of features and services to make your trip to Lebanon as smooth and enjoyable as possible.
+
+## Website using Angular:
+https://lebnb.mahdishehadi.com/
+
+The website is build using Angular
+
+![image](https://github.com/Halyoon/LeBnB/assets/113033930/4a160401-33f2-47e4-af42-9acb1775c120)
+Screen shot lal vs code
+
+![image](https://github.com/Halyoon/LeBnB/assets/113033930/abf8314b-adcc-4a4a-9842-771fa567e37d)
+
+## Backend using Spring boot Apis
+https://lebnb-api.mahdishehadi.com/
+
+![image](https://github.com/Halyoon/LeBnB/assets/113033930/9367e415-bc8c-4559-b3f4-87a0ca1809ba)
+
+Postman collection
+![image](https://github.com/Halyoon/LeBnB/assets/113033930/e88b8f00-2eae-4bd9-a5bf-76c0d223429b)
+
+
+## Database
+
+The database is Postgres
+Screen shot db
+
+## Deployed to AWS EC2
+Docker and EC2 NginX
+
+![image](https://github.com/Halyoon/LeBnB/assets/113033930/8fe37e85-18f1-4bc2-be3c-46aeee88f0c1)
+
 ## Business Model Canvas
 
 Lebnb follows a well-defined business model to drive its operations and revenue generation. The Business Model Canvas is a strategic tool that outlines the key components of the business model. Here's a brief overview of how Lebnb's business model canvas is structured:
